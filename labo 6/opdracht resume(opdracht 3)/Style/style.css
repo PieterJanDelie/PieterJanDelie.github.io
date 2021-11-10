@@ -1,0 +1,29 @@
+p{
+    font-family: Helvetica;
+}
+h1{
+    size: 500px;
+    color: #EDF2F4;
+}
+h2{
+    size: 40px;
+    color: #EDF2F4;
+}
+header{
+    padding: 30px;
+    background-color: #2B2D42;
+    margin-bottom: 10px;
+}
+footer{
+    padding: 30px;
+    background-color: #2B2D42;
+    margin-top: 10px;
+}
+.education{
+    padding: 30px;
+    size: 10px;
+    background-color: #8D99AE;
+}
+a{
+    color: #EF233C;
+}

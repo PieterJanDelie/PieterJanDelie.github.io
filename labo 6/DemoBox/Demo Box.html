@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Box</title>
+    <style>
+        h1,p{
+            background-color: red;
+        }
+
+        .opmaakBlock{
+            /*width: 500px;
+            padding-right: 50px;
+            padding-left: 100px;
+            padding-top: 75px;
+            padding-bottom: 60px;
+
+            zelfde als hier onder
+            */
+
+            /*Breedte = 500 breedte + 50 (padding right) + 100 (padding left)  + 100 (margin left) + 2 * 2 px border*/
+            width: 500px;
+            padding: 75px 50px 60px 100px;
+            margin-left: 100px;
+            margin-top: 75px;
+            border: solid 2px blue;
+            /*eerst top dan right dan bottom dan left*/
+        }
+
+        .opmaak{
+            background-color: blue;
+            width: 200px;
+            margin-left: -50px;
+            padding: 10px;
+            display: inline-block;
+
+        }
+
+
+        .belangrijk{
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+<h1 class="opmaakBlock belangrijk">Vives</h1>
+<p>Vives heeft <span class="opmaak">verschillende</span>  campussen </p>
+
+
+</body>
+</html>
