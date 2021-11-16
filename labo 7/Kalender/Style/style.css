@@ -1,0 +1,23 @@
+
+.kalender .title{
+    background-color: rgb(170,170,200);
+}
+.kalender .header{
+    color: rgb(200,190,240);
+    background-color: rgb(35,37,70);
+}
+.vorigeMaand{
+    background-color: darkgray;
+    color: gray;
+}
+.kalender{
+    background-color: rgb(250,120,120);
+}
+.kalender table tbody tr:first-child
+{
+    background-color: rgb(255,220,220);
+}
+.kalender table tbody tr:last-child
+{
+    background-color: rgb(255,220,220);
+}ff

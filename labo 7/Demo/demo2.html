@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Demo</title>
+
+    <style>
+        article
+        {
+            font-size: 3em;
+            color: blue;
+            border-style: solid;
+            margin:  20px;
+
+        }
+        /*Specificiteit*/
+
+        p.kleur{ /* 0011 ==> zie tabel pagina 32*/
+            background-color: blue;
+        }
+
+        p{ /* 0001 */
+            background-color:yellow /*!important ==> dan vervallen alle regels*/;
+        }
+        p{ /* 0001 */
+
+            background-color: green;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Cursus CSS</h1>
+
+<p class="kleur">Vives</p>
+<p>Kortrijk</p>
+</body>
+</html>

@@ -1,6 +1,6 @@
 .checklist{
-    list-style-image: url('Images/unchecked.png');
+    list-style-image: url(".../Images/unchecked.png");
 }
 .checklist .checked{
-    list-style-image: url('Images/checked.png');
+    list-style-image: url(".../Images/checked.png");
 }
