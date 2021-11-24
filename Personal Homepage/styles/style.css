@@ -4,18 +4,26 @@ html{
     color: white;
 }
 a{
-    color: white;
+    color: lightgrey;
 }
 
 .half{
-
+    border: transparent;
+    padding: 5px;
 }
 .half .text{
+
     margin-top: 5px;
     margin-left: 15px;
+    color: lightgrey;
 }
 .half img{
     float: left;
+}
+h1{
+    font-size: 8em;
+    text-align: center;
+    text-decoration: underline;
 }
 
 

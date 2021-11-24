@@ -44,6 +44,7 @@
 .vrienden table tbody td:first-child
 {
     border-left: none;
+    color: red;
 }
 .vrienden table tbody tr:last-child td
 {

@@ -2,3 +2,9 @@ a > img{
     width: 20px;
     height: auto;
 }
+a{
+    font-size: 2em;
+}
+a:hover{
+    color: red;
+}
