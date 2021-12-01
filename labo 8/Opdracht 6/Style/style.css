@@ -1,7 +1,13 @@
+body{
+    margin: 0px;
+}
 .tabel td{
-    width: 50%;
+    width: 47%;
     border: black solid 2px;
     box-sizing: border-box;
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
 }
 .padding{
     padding: 10px;
