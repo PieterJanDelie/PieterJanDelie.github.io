@@ -1,0 +1,20 @@
+div[class*='col'] /* we maken gebruik van een wildcard */
+{
+    height: 200px;
+    box-sizing: border-box;
+    border: white 10px solid;
+    background-color: gray;
+}
+
+/* we hadden ook deze class kunnen
+opmaken maar dan moeten we aan
+elke div de class box tooevoegen
+.box
+{
+    height: 200px;
+    box-sizing: border-box;
+    border: white 10px solid;
+
+}
+*/
+

@@ -3,8 +3,26 @@ a > img{
     height: auto;
 }
 p{
-    font-size: 2em;
+    font-size: 1em;
 }
-ul{
-    list-style-type: square;
+.col{
+    float: left;
+    width: 33%;
+}
+img{
+    height: 1500px;
+}
+img:hover{
+    transform: scale(1.5);
+}
+
+@media only screen and (max-width: 992px) {
+    .col{
+        width: 49%; !important;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .col{
+        width: 100%; !important;
+    }
 }

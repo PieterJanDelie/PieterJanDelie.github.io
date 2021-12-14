@@ -1,22 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-
-    <title>Layout a.d.h.v Float</title>
+    <title>Layout a.d.h.v Bootstrap</title>
+    <link rel="stylesheet" href="Style/bootstrap-grid.css">
     <link rel="stylesheet" href="Style/style.css">
 </head>
 <body>
-<div>
-    <div>
-        <header>
+<div class="container">
+    <div class="row">
+        <header class="col">
             <p>blablabla</p>
             <p>blablabla</p>
         </header>
     </div>
-    <div>
-        <section id="left">
+    <div class="row">
+        <section class="col-md-2" id="right">
+            <p>dsds</p>
+            <p>dsdsd</p>
+        </section>
+        <section class="col-md-8" id="left">
             <p>blablabla</p>
             <p>blablabla</p>
             <p>blablabla</p>
@@ -25,13 +28,13 @@
             <p>blablabla</p>
             <p>blablabla</p>
         </section>
-        <section id="right">
+        <section class="col-md-2" id="right">
             <p>promotie</p>
             <p>promotie</p>
         </section>
     </div>
-    <div>
-        <footer>
+    <div class="row">
+        <footer class="col">
             <p>blablabla</p>
         </footer>
     </div>

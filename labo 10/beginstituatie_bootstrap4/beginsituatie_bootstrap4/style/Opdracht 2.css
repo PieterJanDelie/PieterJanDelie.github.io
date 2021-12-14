@@ -1,0 +1,32 @@
+.light{
+    background-color: lightgrey;
+    padding: 10px;
+}
+.dark{
+    background-color: gray;
+    padding: 10px;
+}
+.row{
+    height: 150px;
+}
+div[class*='col']
+{
+    height: 200px;
+    box-sizing: border-box;
+    border: white 10px solid;
+    float: left;
+    width: 24%;
+}
+
+@media only screen and (max-width: 992px) {
+    div[class*='col']{
+        float: left;
+        width: 49%; !important;
+    }
+}
+@media only screen and (max-width: 768px) {
+    div[class*='col']{
+        float: left;
+        width: 100%; !important;
+    }
+}
