@@ -1,0 +1,79 @@
+/** Volgende CSS gaan we ze geven **/
+/*Algemene css*/
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Helvetica, sans-serif;
+}
+
+h1{
+    font-size: 2.5em;
+    border-bottom: black 2px;
+    text-transform: uppercase;
+}
+
+h2{
+    font-size: 150%;
+}
+
+.respimg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*logo*/
+.logobox{
+    border-bottom: #ebe8e8 solid 1px;
+}
+.logo{
+    height: 50px;
+}
+
+/*navigation*/
+.navigation{
+    text-align: center;
+    display: grid;
+    grid-template-columns: 14% 14% 14% 14% 14% 14% 14%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 600px;
+}
+.navigation a{
+    border: solid 1px darkgray;
+    text-align: center;
+    font-size: 2em;
+
+}
+.navigation a{
+    border: solid 1px darkgray;
+    text-align: center;
+    font-size: 2em;
+}
+.navigation a:hover{
+    border-bottom: 2px #fff100 solid;
+}
+/*Header*/
+.header{
+    height: 500px;
+}
+.header img{
+    position: relative;
+}
+.header #betterfood{
+    color: white;
+    font-size: 40px;
+    text-align: center;
+}
+
+/*Media querys*/
+@media only screen and (min-width: 770px){
+    .navigation{
+        width: 750px;
+    }
+}
+@media only screen and (min-width: 1000px){
+    .navigation{
+        width: 980px;
+    }
+}

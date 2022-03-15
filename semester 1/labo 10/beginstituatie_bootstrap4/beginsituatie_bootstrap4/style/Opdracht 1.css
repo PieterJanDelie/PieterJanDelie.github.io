@@ -1,0 +1,18 @@
+.light{
+    background-color: lightgrey;
+    padding: 10px;
+}
+.dark{
+    background-color: gray;
+    padding: 10px;
+}
+.row{
+    height: 150px;
+}
+div[class*='col']
+{
+    height: 200px;
+    box-sizing: border-box;
+    border: white 10px solid;
+}
+
