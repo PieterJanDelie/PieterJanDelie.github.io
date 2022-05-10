@@ -1,0 +1,14 @@
+.wrongAlert{
+    background-color: red;
+    font-family: bold;
+    height: 50px;
+}
+
+.correctAlert{
+    background-color: greenyellow;
+    font-family: bold;
+    height: 50px;
+}
+#correct{
+    height: 50px;
+}

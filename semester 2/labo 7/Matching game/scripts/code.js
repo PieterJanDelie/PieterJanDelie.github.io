@@ -1,37 +1,41 @@
 let global = {
-    AANTAL_HORIZONTAAL: 4,
-    AANTAL_VERTICAAL: 3,
-    AANTAL_KAARTEN: 6
+    aantal_horizontal: 4,
+    aantal_vertical: 3,
+    aantal_kaarten: 6
 }
-let SPEELVELDFRONTCARDS = []
-let TURNEDCARD = null
-
-
+let speelveldFrontCards = []
+let turnedCard = null
+let isBusy = false
 
 const setup = () => {
     buildPlayFieldBackCard()
-    SPEELVELDFRONTCARDS = buildPlayFieldFrontCard()
-    for (let i=0;i<SPEELVELDFRONTCARDS.length;i++) {
-        console.log(SPEELVELDFRONTCARDS[i].toString())
+    speelveldFrontCards = buildPlayFieldFrontCard()
+    for (let i=0; i<speelveldFrontCards.length; i++) {
+        console.log(speelveldFrontCards[i].toString())
     }
 }
 
 const buildPlayFieldBackCard = () => {
-    let speelveld = document.getElementById("playField")
+    let score = document.getElementById("score");
+    score.innerHTML = 0;
+    let speelveld = document.getElementById("playField");
     let urlachterkant = "Image/kaartAchterkant.png";
 
     let plaatsOpIndex = 0;
 
-    for (let i=0;i<global.AANTAL_HORIZONTAAL;i++) {
-        for (let j=0;j<global.AANTAL_VERTICAAL;j++) {
-            let achterkantkaart = document.createElement("img")
+    for (let i=0; i<global.aantal_vertical; i++) {
+        let row = document.createElement("div");
+        row.setAttribute("Class", "row");
+        for (let j=0;j<global.aantal_horizontal;j++) {
+            let achterkantkaart = document.createElement("img");
             achterkantkaart.setAttribute("src", urlachterkant);
-            achterkantkaart.setAttribute("Class", "Kaart")
+            achterkantkaart.setAttribute("class", "Kaart")
             achterkantkaart.setAttribute("id", plaatsOpIndex.toString());
             plaatsOpIndex ++;
-            achterkantkaart.addEventListener('click', turnCard)
-            speelveld.appendChild(achterkantkaart);
+            achterkantkaart.addEventListener('click', turnCard);
+            row.appendChild(achterkantkaart);
         }
+        speelveld.appendChild(row);
     }
 }
 
@@ -41,16 +45,16 @@ const buildPlayFieldFrontCard = () => {
     let frontCards = [];
     let numbersGotten = [];
     numbersGotten.length = listCards.length;
-    frontCards.length = global.AANTAL_KAARTEN * 2;
+    frontCards.length = global.aantal_kaarten * 2;
     let randomNumbersIndexen = [];
-    randomNumbersIndexen.length = global.AANTAL_KAARTEN * 2;
+    randomNumbersIndexen.length = global.aantal_kaarten * 2;
     for (let i=0; i < randomNumbersIndexen.length; i++){
         randomNumbersIndexen[i] = Math.round((i - 1) / 2);
     }
     randomNumbersIndexen = shuffleArray(randomNumbersIndexen);
 
     for (let i=0;i<frontCards.length;i++) {
-        frontCards[i] = listCards[randomNumbersIndexen.pop()]
+        frontCards[i] = listCards[randomNumbersIndexen.pop()];
     }
     return frontCards;
 }
@@ -59,64 +63,91 @@ const buildPlayFieldFrontCard = () => {
 
 
 const getCardList = () => {
-    let listCards = []
-    listCards.length = global.AANTAL_KAARTEN
+    let listCards = [];
+    listCards.length = global.aantal_kaarten;
 
     for (let i=0;i<listCards.length;i++) {
-        listCards[i] = "Image/kaart" + (i + 1) + ".png"
+        listCards[i] = "Image/kaart" + (i + 1) + ".png";
     }
-    return listCards
+    return listCards;
 }
 
 const turnCard = (event) => {
-    let indexCardBack = event.target.getAttribute("id")
-    let source = SPEELVELDFRONTCARDS[indexCardBack]
-    //turn first card
-    if (TURNEDCARD === null){
-        TURNEDCARD = source
-        event.target.setAttribute("src", source);
-    }
-    else{
-        //check with turned card
-        let playfield = document.getElementById("playField")
-        let cards = playfield.children;
-        if (source === TURNEDCARD){
-            let newPlayField = [];
-            for (let i=0;i<SPEELVELDFRONTCARDS.length;i++) {
-                if (SPEELVELDFRONTCARDS[i] === TURNEDCARD){
-                    playfield.removeChild(cards[i]);
-                    i --;
-                }
-                else{
-                    newPlayField[newPlayField.length] = SPEELVELDFRONTCARDS[i];
-                }
-            }
-            SPEELVELDFRONTCARDS = newPlayField;
-            if (cards.length === 0){
-                window.alert("proficiat u bent gewonnen");
-                setup()
-            }else{
-                setTimeout(turnEveryCard, 1000);
-            }
+    if (isBusy === false){
+        isBusy = true;
+
+        let indexCardBack = event.target.getAttribute("id");
+        let source = speelveldFrontCards[indexCardBack];
+
+        //turn first card
+        if (turnedCard === null){
+            turnedCard = source;
+            event.target.setAttribute("src", source);
+            event.target.removeEventListener("click", turnCard);
+            event.target.setAttribute("class", "Kaart turnedCard");
+            isBusy = false;
         }
+
+        //turn second card
         else{
-            for (let i=0;i<cards.length;i++) {
-                cards[i].setAttribute("src", "Image/kaartAchterkant.png");
+            let score = document.getElementById("score");
+            score.innerHTML = parseInt(score.innerHTML) + 1;
+            //correct
+            if (turnedCard === source){
+                event.target.removeEventListener('click', turnCard);
+                event.target.setAttribute('src', source);
+                let pairedCard = document.getElementsByClassName("turnedCard")[0];
+                pairedCard.setAttribute("class", "Kaart");
+                pairedCard.removeEventListener('click', turnCard);
+                correctAlert();
             }
+
+            //incorrect
+            else{
+                event.target.setAttribute("src", source);
+                event.target.removeEventListener('click', turnCard);
+                event.target.setAttribute("class", "Kaart turnedCard");
+                setTimeout(turnBack, 1000);
+                wrongAlert();
+            }
+            turnedCard = null;
         }
-        TURNEDCARD = null;
     }
 }
-const turnEveryCard = () => {
-    let playfield = document.getElementById("playField")
-    let cards = playfield.children;
-    for (let i=0;i<cards.length;i++) {
-        cards[i].setAttribute("src", "Image/kaartAchterkant.png");
-    }
-    for (let i=0;i<SPEELVELDFRONTCARDS.length;i++) {
-        console.log(SPEELVELDFRONTCARDS[i].toString())
-    }
+const wrongAlert = () =>{
+    let antwoord = document.getElementById("correct");
+    let el = document.createElement("div");
+    el.setAttribute("class","wrongAlert");
+    el.innerHTML = "De twee prenten komen niet overeen";
+    setTimeout(function(){
+        el.parentNode.removeChild(el);
+    },1000);
+    antwoord.appendChild(el);
 }
+
+const correctAlert = () =>{
+    let antwoord = document.getElementById("correct");
+    let el = document.createElement("div");
+    el.setAttribute("class","correctAlert");
+    el.innerHTML = "De twee prenten komen overeen";
+    setTimeout(function(){
+        el.parentNode.removeChild(el);
+    },1000);
+    antwoord.appendChild(el);
+    isBusy = false;
+}
+
+const turnBack = () => {
+    let turnedCard = document.getElementsByClassName("turnedCard");
+    while (turnedCard.length > 0){
+        turnedCard[0].setAttribute("src","Image/kaartAchterkant.png" );
+        turnedCard[0].addEventListener('click', turnCard);
+        turnedCard[0].setAttribute("class", "Kaart");
+    }
+    isBusy = false;
+
+}
+
 
 
 const shuffleArray = (array) => {

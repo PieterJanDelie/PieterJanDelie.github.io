@@ -31,4 +31,6 @@
 button{
     float: right;
 }
-
+.hide{
+    display: none;
+}
