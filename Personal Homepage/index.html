@@ -1,41 +1,19 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Oscar Crucke</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="styles/bootstrap-grid.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Playlist & Photo Gallery</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-    <header>
-        <h1>Persoonlijke pagina Oscar Crucke</h1>
-    </header>
-<body class="container">
-    <div>
-        <section class="col">
-            <img src="Images/Home/Oscar_Crucke.jpg" alt="Oscar Crucke"/>
-        </section>
-
-        <section class="col">
-            <article>
-                <div>
-                    <header><h2>Persoonlijke Informatie</h2></header>
-                    <div>
-                        <p>naam = Oscar Crucke</p>
-                        <p>addres = veldweg 12</p>
-                        <p>telefoonnummer = +32478/35.16.91</p>
-                        <p>email addres = oscar.crucke@cafeDeKampioen.be</p>
-                        <p>geboortedatum = 19/01/1953</p>
-                    </div>
-                </div>
-                <nav>
-                    <div class="beforelink">
-                        <a href="hobbys/hobbys.html">hobby's</a><br />
-                        <a href="likes/likes.html">likes</a>
-                    </div>
-                </nav>
-            </article>
-        </section>
+<body>
+    <div class="spotify-playlist">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1x7t0qKxDbm9TJqaNh5ab4?utm_source=generator"allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
+    <div class="photo-gallery">
+        <img id="galleryImage" src="" alt="Photo">
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
